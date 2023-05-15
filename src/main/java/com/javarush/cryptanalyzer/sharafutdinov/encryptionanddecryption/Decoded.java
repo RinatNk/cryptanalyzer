@@ -18,9 +18,7 @@ public class Decoded {
                 System.out.print(ENTERING_THE_KEY);
                 int key = scanner.nextInt();
                 while ((text = readerInputText.readLine()) != null) {
-                    for (int i = 0; i < text.length(); i++) {
-                        writerOutputText.write(decryption(text.charAt(i), key));
-                    }
+                        writerOutputText.write(decryption(text, key) + "\n");
                 }
                 System.out.print(THE_TEXT_IS_DECODED_BY_DEFAULT);
             } catch (IOException e) {
@@ -33,9 +31,7 @@ public class Decoded {
                 System.out.print(ENTERING_THE_KEY);
                 int key = scanner.nextInt();
                 while ((text = readerInputText.readLine()) != null) {
-                    for (int i = 0; i < text.length(); i++) {
-                        writerOutputText.write(decryption(text.charAt(i), key));
-                    }
+                        writerOutputText.write(decryption(text, key) + "\n");
                 }
                 System.out.print(THE_TEXT_IS_DECODED + file);
             } catch (IOException e) {

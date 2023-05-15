@@ -22,17 +22,13 @@ public class Encoded {
                 if (key.isEmpty()) {
                     int randomKey = (int) ((Math.random() * ALPHABET.length()) + 1);
                     while ((text = readerInputText.readLine()) != null) {
-                        for (int i = 0; i < text.length(); i++) {
-                            writerOutputText.write(encryption(text.charAt(i), randomKey));
-                        }
+                        writerOutputText.write(encryption(text, randomKey) + "\n");
                     }
-                    System.out.print(THE_TEXT_IS_ENCRYPTED + "\n" + YOUR_KEY + randomKey + "\n"+ ATTENTION);
-                } else {
+                    System.out.print(THE_TEXT_IS_ENCRYPTED + "\n" + YOUR_KEY + randomKey + "\n" + ATTENTION);
+            } else {
                     int userKey = Integer.parseInt(key);
                     while ((text = readerInputText.readLine()) != null) {
-                        for (int i = 0; i < text.length(); i++) {
-                            writerOutputText.write(encryption(text.charAt(i), userKey));
-                        }
+                            writerOutputText.write(encryption(text, userKey) + "\n");
                     }
                     System.out.print(THE_TEXT_IS_ENCRYPTED + "\n" + YOUR_KEY + userKey + "\n" + ATTENTION);
                 }
@@ -48,17 +44,13 @@ public class Encoded {
                 if (key.isEmpty()) {
                     int randomKey = (int) ((Math.random() * ALPHABET.length()) + 1);
                     while ((text = readerInputText.readLine()) != null) {
-                        for (int i = 0; i < text.length(); i++) {
-                            writerOutputText.write(encryption(text.charAt(i), randomKey));
-                        }
+                            writerOutputText.write(encryption(text, randomKey) + "\n");
                     }
                     System.out.print(THE_TEXT_IS_ENCRYPTED + "\n" + YOUR_KEY + randomKey + "\n"+ ATTENTION);
                 } else {
                     int userKey = Integer.parseInt(key);
                     while ((text = readerInputText.readLine()) != null) {
-                        for (int i = 0; i < text.length(); i++) {
-                            writerOutputText.write(encryption(text.charAt(i), userKey));
-                        }
+                            writerOutputText.write(encryption(text, userKey) + "\n");
                     }
                     System.out.print(THE_TEXT_IS_ENCRYPTED + "\n" + YOUR_KEY + userKey+ "\n"+ ATTENTION);
                 }
@@ -66,6 +58,6 @@ public class Encoded {
                 System.out.print(IOEXCEPTION + e);
             }
         }
-        scanner.close();
+         scanner.close();
     }
 }

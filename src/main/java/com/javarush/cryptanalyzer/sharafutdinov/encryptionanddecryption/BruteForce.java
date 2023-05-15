@@ -15,17 +15,12 @@ public class BruteForce {
         int i = 1;
         if (file.isEmpty()) {
             while (i < ALPHABET.length()) {
-                String key = YOUR_KEY + i;
                 try (BufferedReader readerInputText = new BufferedReader(new FileReader("encoded.txt"));
                      BufferedWriter writerOutputText = new BufferedWriter(new FileWriter("output.txt"))) {
                     String text;
                     while ((text = readerInputText.readLine()) != null) {
-                        //System.out.println(key);
-                        writerOutputText.write(key + "\n");
-                        for (int j = 0; j < text.length(); j++) {
-                            writerOutputText.write(decryption(text.charAt(j), i));
-                            System.out.print(decryption(text.charAt(j), i));
-                        }
+                            writerOutputText.write(decryption(text, i) + "\n");
+                            System.out.print(decryption(text, i));
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -41,17 +36,12 @@ public class BruteForce {
             }
         } else {
             while (i < ALPHABET.length()) {
-                String key = YOUR_KEY + i;
                 try (BufferedReader readerInputText = new BufferedReader(new FileReader("encoded.txt"));
                      BufferedWriter writerOutputText = new BufferedWriter(new FileWriter(file))) {
                     String text;
                     while ((text = readerInputText.readLine()) != null) {
-                        //System.out.println(key);
-                        writerOutputText.write(key + "\n");
-                        for (int j = 0; j < text.length(); j++) {
-                            writerOutputText.write(decryption(text.charAt(j), i));
-                            System.out.print(decryption(text.charAt(j), i));
-                        }
+                        writerOutputText.write(decryption(text, i) + "\n");
+                            System.out.print(decryption(text, i));
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

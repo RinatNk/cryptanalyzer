@@ -3,15 +3,15 @@ package com.javarush.cryptanalyzer.sharafutdinov.encryptionanddecryption;
 import static com.javarush.cryptanalyzer.sharafutdinov.constants.Alphabet.*;
 
 public class EncryptionAndDecryption {
-    public static char encryption(char symbols, int key) {
-        if (ALPHABET.indexOf(symbols) != -1) {
-            return ALPHABET.charAt((ALPHABET.indexOf(symbols) + key) % ALPHABET.length());
-        } else {
-            return symbols;
+    public static String encryption(String text, int key) {
+        StringBuilder cText = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            cText.append(ALPHABET.charAt((ALPHABET.indexOf(text.charAt(i)) + key) % ALPHABET.length()));
         }
-    }
-    public static char decryption(char symbols, int key) {
-        return encryption(symbols, ALPHABET.length() - (key % ALPHABET.length()));
+            return cText.toString();
+        }
+    public static String decryption(String text, int key) {
+        return encryption(text, ALPHABET.length() - (key % ALPHABET.length()));
     }
 }
 
